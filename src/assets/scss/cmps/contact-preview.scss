@@ -1,0 +1,48 @@
+.contact-preview {
+    width: 328px;
+    height: 60px;
+    border-radius: 42px;
+    background: #03a9f414;
+    box-shadow: 0 0 11px #0000002b;
+    display: flex;
+    align-items: center;
+    // flex-direction: column;
+    // overflow: hidden
+    gap: 10px;
+    cursor: pointer;
+
+    .info {
+        display: flex;
+        padding: 1px;
+        flex-grow: 1;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        flex-basis: 25%;
+        padding: 10px;
+        justify-content: space-between;
+
+    }
+
+}
+
+
+
+
+.info {
+
+
+    h2 {
+        color: #3c6dc3;
+        font-weight: 400;
+    }
+
+    a {
+        color: aqua;
+    }
+
+}

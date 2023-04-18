@@ -1,0 +1,28 @@
+body {
+    background-image: url(https://abstracthdwallpapers.files.wordpress.com/2012/07/pink-floyd-the-dark-side-of-the-moon-light-spectrum-1280x1024.jpg);
+    background-repeat: round;
+    background-size: cover;
+}
+
+.user-homepage {
+    margin-block-start: 10px;
+    text-align: center;
+}
+
+.contact {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.fa-bitcoin {
+    color: #d6e316
+}
+
+.welcome {
+    font-weight: 600;
+    font-size: xx-large;
+    text-align: center;
+    background: linear-gradient(to right, #0000FF, #FFFF00,  #8B00FF,#FF0000, #FF7F00, #00FF00,);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
