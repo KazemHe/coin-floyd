@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/coin-floyd/static/css/main.c3a54536.css",
+    "main.css": "/coin-floyd/static/css/main.279bec1d.css",
     "main.js": "/coin-floyd/static/js/main.c5b7efda.js",
     "static/js/787.28cb0dcd.chunk.js": "/coin-floyd/static/js/787.28cb0dcd.chunk.js",
     "static/media/contact.png": "/coin-floyd/static/media/contact.63d1e4e606afa8350ca3.png",
     "index.html": "/coin-floyd/index.html",
-    "main.c3a54536.css.map": "/coin-floyd/static/css/main.c3a54536.css.map",
+    "main.279bec1d.css.map": "/coin-floyd/static/css/main.279bec1d.css.map",
     "main.c5b7efda.js.map": "/coin-floyd/static/js/main.c5b7efda.js.map",
     "787.28cb0dcd.chunk.js.map": "/coin-floyd/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3a54536.css",
+    "static/css/main.279bec1d.css",
     "static/js/main.c5b7efda.js"
   ]
 }
