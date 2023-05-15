@@ -37,7 +37,7 @@ export class SingUpPage extends Component {
             <section >
                 <form className="sing-up" onSubmit={this.onSingUp} >
                     <i className="fa-brands fa-bitcoin"></i>
-                    <label htmlFor="name">Please enter your name :</label>
+                    <label  htmlFor="name">Please enter your name :</label>
                     <input value={name} onChange={this.handleChange} type="text" name="name" id="name" placeholder='Name' />
                     <button>sing up</button>
                 </form>
