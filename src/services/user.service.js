@@ -17,7 +17,11 @@ const user =
 function getUser() {
     const user = storageService.load('user')
     if (user) return user
-    else return
+    else return {
+        name: "Ochoa Hyde",
+        coins: 100,
+        moves: []
+    }
 
 }
 
