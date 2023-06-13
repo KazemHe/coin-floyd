@@ -4,8 +4,7 @@ export const UserService = {
     getUser,
     signUp,
     updateCoinBalance,
-    // updateMoves
-    // saveLocalUser
+
 }
 
 const user =

@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service'
 
 
 
-export class SingUpPage extends Component {
+export class SignUpPage extends Component {
 
     state = {
         userCred: {
@@ -11,13 +11,13 @@ export class SingUpPage extends Component {
         }
     }
 
-    onSingUp = (ev) => {
+    onSignUp = (ev) => {
         ev.preventDefault()
         console.log(ev)
 
         try {
-            UserService.signUp(this.state.userCred)
-            // this.props.history.push('/')
+            UserService.signUp(this.state.userCred);
+
         } catch (error) {
             console.log('error:', error)
         }
@@ -35,9 +35,9 @@ export class SingUpPage extends Component {
         const { name } = userCred
         return (
             <section >
-                <form className="sing-up" onSubmit={this.onSingUp} >
+                <form className="sing-up" onSubmit={this.onSignUp} >
                     <i className="fa-brands fa-bitcoin"></i>
-                    <label  htmlFor="name">Please enter your name :</label>
+                    <label htmlFor="name">Please enter your name :</label>
                     <input value={name} onChange={this.handleChange} type="text" name="name" id="name" placeholder='Name' />
                     <button>sing up</button>
                 </form>

@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { UserService } from '../services/user.service'
 import { BitcoinService } from '../services/Bitcoin.service'
 // import { ContactPage } from './ContactPage'
-import { SingUpPage } from '../pages/SignupPage'
+import { SignUpPage } from '../pages/SignupPage'
 import { MovesList } from '../components/MovesList'
 
 
@@ -16,29 +16,12 @@ export class HomePage extends Component {
 
     componentDidMount() {
         this.loadUser()
-        // if (!this.state.user) this.props.history.push('/SingUp')
     }
-    // componentDidUpdate() {
-    //     this.loadUser()
-
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log('hompage prev state', prevState)
-    //     if (prevState.user !== this.state.user) {
-    //         this.loadUser()
-    //         this.props.history.push('/')
-
-    //     }
-    // }
 
     loadUser = async () => {
         try {
             const user = await UserService.getUser()
-            console.log('user from load user', user)
             this.setState({ user }, () => this.loadRate())
-            console.log('user from this.state ', this.state)
-
         } catch (err) {
             console.log('err:', err)
             return
@@ -59,12 +42,22 @@ export class HomePage extends Component {
         }
     }
 
+    onSignUp = (ev) => {
+        ev.preventDefault()
+        console.log(ev)
 
+        try {
+            UserService.signUp(this.state.userCred);
+
+        } catch (error) {
+            console.log('error:', error)
+        }
+    }
 
     render() {
 
         const { user, rate } = this.state
-        if (!user) return <SingUpPage />
+        if (!user) return <SignUpPage />
         console.log(user)
 
         if (!rate) return <div>no rate..</div>
