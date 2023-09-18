@@ -8,21 +8,26 @@ export class ContactDetails extends Component {
 
     state = {
         contact: null,
-        user: null
+        user: null ,
+        moves : []
 
     }
 
     componentDidMount() {
-        this.loadContact()
-        this.loadUser()
+        this.loadContact();
+        this.loadUser();
     }
-
-
+    
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
-            this.loadContact()
+            this.loadContact();
         }
     }
+    
+    updateUserAfterTransfer = async () => {
+        await this.loadUser();
+    }
+
     loadContact = async () => {
         try {
             const contact = await ContactService.getContactById(this.props.match.params.id)
@@ -33,16 +38,14 @@ export class ContactDetails extends Component {
     }
     loadUser = async () => {
         try {
-            const user = await UserService.getUser()
-            console.log('user from load user', user)
-            this.setState({ user })
-            console.log('user from this.state ', this.state)
-
+            const user = await UserService.getUser();
+            this.setState({ user, moves: user.moves || [] }); // Set user and moves
         } catch (err) {
-            console.log('err:', err)
-            return
+            console.log('err:', err);
+            return;
         }
     }
+    
 
 
     onBack = () => {
@@ -69,7 +72,7 @@ export class ContactDetails extends Component {
                     <button onClick={this.onBack}>Back</button>
                 </section>
                 <section>
-                    <TransferFund contact={contact} />
+                <TransferFund contact={contact} onTransferSuccess={this.updateUserAfterTransfer} />
                 </section>
                 <section>
                     <MovesList title={'your moves '} user={user} contact={contact} />

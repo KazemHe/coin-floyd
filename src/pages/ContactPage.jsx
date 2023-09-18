@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { ContactService } from '../services/contact.service'
 import { ContactList } from '../components/ContactList'
-// import { ContactDetails } from './ContactDetails'
 import { ContactFilter } from '../components/ContactFilter'
 import { Link } from 'react-router-dom'
 

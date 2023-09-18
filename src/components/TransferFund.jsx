@@ -12,20 +12,24 @@ export class TransferFund extends Component {
     componentDidMount() {
         this.setState({ contact: { ...this.props.contact } })
     }
-
     onTransferCoins = async (ev) => {
         ev.preventDefault()
         try {
-            console.log(this.state.amount)
+            // ...
             await UserService.updateCoinBalance(this.state.user, this.state.amount, { TO: this.state.contact.name, At: Date.now(), amount: this.state.amount })
-            UserService.updateMoves(this.state.user)
+            const updatedUser = await UserService.getUser();
+            this.setState({ user: updatedUser });
 
-            // await ContactService.saveContact({ ...this.state.contact })
-            // this.props.history.push('/Contact')
+            // Call the callback function after successful transfer
+            this.props.onTransferSuccess();
+
+            // ...
         } catch (error) {
             console.log('error:', error)
         }
     }
+    
+    
 
     handleChange = ({ target }) => {
         const value = +target.value

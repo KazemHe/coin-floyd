@@ -16,7 +16,7 @@ export class SignUpPage extends Component {
         console.log(ev)
 
         try {
-            UserService.signUp(this.state.userCred);
+            this.props.onSignUp(this.state.userCred);
 
         } catch (error) {
             console.log('error:', error)

@@ -8,34 +8,34 @@ export class MovesList extends Component {
     }
 
     componentDidMount() {
-        if (this.props.user.moves)
-            this.setState({ user: this.props.user, moves: [...this.props.user.moves] })
-        if (this.props.contact)
-            this.setState({ contact: this.props.contact })
-
+        this.updateStateFromProps(this.props);
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.user !== this.props.user) {
-            if (this.props.user.moves)
-                this.setState({ moves: [...this.props.user.moves] })
-            else
-                this.setState({ moves: [] })
+        if (prevProps.user !== this.props.user || prevProps.contact !== this.props.contact) {
+            this.updateStateFromProps(this.props);
         }
     }
 
+    updateStateFromProps(props) {
+        const { user, contact } = props;
+        const moves = user.moves || [];
+
+        this.setState({ user, moves, contact });
+    }
+
     render() {
-        console.log('this .state moves', this.state)
-        const { moves } = this.state
+        console.log('this .state moves', this.state);
+        const { moves } = this.state;
 
-        if (!moves) return <div>...loading</div>
+        if (!moves) return <div>...loading</div>;
 
-        let movesToRender = moves
+        let movesToRender = moves;
 
         if (this.props.contact) {
-            movesToRender = moves.filter(move => move.TO === this.props.contact.name)
+            movesToRender = moves.filter(move => move.TO === this.props.contact.name);
         } else if (moves.length > 3) {
-            movesToRender = moves.slice(-3)
+            movesToRender = moves.slice(-3);
         }
 
         return (

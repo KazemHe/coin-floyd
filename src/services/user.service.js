@@ -4,26 +4,29 @@ export const UserService = {
     getUser,
     signUp,
     updateCoinBalance,
-
+    updateMoves
 }
 
-const user =
-{
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: []
-}
+// const user =
+// {
+//     name: "Ochoa Hyde",
+//     coins: 100,
+//     moves: []
+// }
 
 function getUser() {
     const user = storageService.load('user')
     if (user) return user
-    else return {
-        name: "Ochoa Hyde",
-        coins: 100,
-        moves: []
+    else {
+        return false
     }
-
 }
+
+// return {
+//     name: "Ochoa Hyde",
+//     coins: 100,
+//     moves: []
+// }
 
 function signUp(userCred) {
     userCred.coins = 100
@@ -41,4 +44,10 @@ function updateCoinBalance(user, coinValue, move) {
     } else {
         return false; // Return false to indicate failure
     }
+}
+
+
+function updateMoves(user, move) {
+    user.moves.push(move);
+    storageService.store('user', user);
 }
